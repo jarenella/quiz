@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <nav id="header">
+        <h1>How Well Do You Know Me?</h1>
+        <button>Restart Quiz</button>
+        <button id="highscores-button1">View High Scores</button>
+    </nav>
+
+    <nav id="begin-box" class="displayed">
+        <h2>Are you ready? Test your knowledge about me</h2>
+        <button class="next-button" id="next-button-begin">Click to begin</button>
+    </nav>
+
+    <nav id="question1-box" class="hidden">
+        <h3>Which of these is my favorite beverage</h3>
+        <!--answer 1-->
+        <input type="checkbox" id="q1a1" value="boba">
+        <label for="q1a1">Boba</label>
+        <!--answer2-->
+        <input type="checkbox" id="q1a2" value="coffee">
+        <label for="q1a2">Coffee</label>
+        <!--answer3-->
+        <input type="checkbox" id="q1a3" value="lemonaide">
+        <label for="q1a3">Lemonaide</label>
+        <!--answer 4-->
+        <input type="checkbox" id="q1a4" value="soda">
+        <label for="q1a4">Soda</label>
+        <!--next question button-->
+        <button class="next-button" id="next-button-1">Next</button>
+    </nav>
+
+    <nav id="question2-box" class="hidden">
+        <h3>Which of these keyboard faces is my favorite?</h3>
+        <!--answer 1-->
+        <input type="checkbox" id="q2a1" value="^-^">
+        <label for="q2a1">^-^</label>
+        <!--answer2-->
+        <input type="checkbox" id="q2a2" value=":)">
+        <label for="q2a2">:)</label>
+        <!--answer3-->
+        <input type="checkbox" id="q2a3" value="C:">
+        <label for="q2a3">:D</label>
+        <!--answer 4-->
+        <input type="checkbox" id="q2a4" value=";)">
+        <label for="q2a4">;)</label>
+        <!--next and previous question buttons-->
+        <button class="prev-button" id="prev-button-2">Previous</button>
+        <button class="next-button" id="next-button-2">Next</button>
+    </nav>
+
+    <nav id="question3-box" class="hidden">
+        <h3>What is my favorite mythical creature?</h3>
+        <!--answer 1-->
+        <input type="checkbox" id="q3a1" value="goblins">
+        <label for="q3a1">Goblins</label>
+        <!--answer2-->
+        <input type="checkbox" id="q3a2" value="fairies">
+        <label for="q3a2">Fairies</label>
+        <!--answer3-->
+        <input type="checkbox" id="q3a3" value="gnomes">
+        <label for="q3a3">Gnomes</label>
+        <!--answer 4-->
+        <input type="checkbox" id="q3a4" value="trolls">
+        <label for="q3a4">Trolls</label>
+        <!--next and previous question buttons-->
+        <button class="prev-button" id="prev-button-3">Previous</button>
+        <button class="next-button" id="next-button-3">Next</button>
+    </nav>
+
+    <nav id="question4-box" class="hidden">
+        <h3>Which of these animals is my favorite?</h3>
+        <!--answer 1-->
+        <input type="checkbox" id="q4a1" value="giraffe">
+        <label for="q4a1">Giraffe</label>
+        <!--answer2-->
+        <input type="checkbox" id="q4a2" value="panda">
+        <label for="q4a2">Panda</label>
+        <!--answer3-->
+        <input type="checkbox" id="q4a3" value="fox">
+        <label for="q4a3">Fox</label>
+        <!--answer 4-->
+        <input type="checkbox" id="q4a4" value="raccoon">
+        <label for="q4a4">Raccoon</label>
+        <!--next and previous question buttons-->
+        <button class="prev-button" id="prev-button-4">Previous</button>
+        <button class="next-button" id="next-button-4">Next</button>
+    </nav>
+
+    <nav id="finish-box" class="hidden">
+        <h3>Congrats! You finished. Your score was: <span id="score"></span>%</h3>
+        <h4>Enter your name to submit your score!</h4>
+        <textarea></textarea>
+        <button>Submit</button>
+        <p>Congrats! Your score was submitted</p>
+        <button id="highscores-button2">Click to see high scores</button>
+    </nav>
+
+    <nav id="high-scores" class="hidden">
+        <h3>High Scores:</h3>
+        <p id="top-score"></p>
+        <p id="2nd-place"></p>
+        <p id="3rd-place"></p>
+        <p id="4th-place"></p>
+        <p id="5th-place"></p>
+        <p id="6th-place"></p>
+        <p id="7th-place"></p>
+        <p id="8th-place"></p>
+    </nav>
+
+    <script src="assets/script/script.js"></script>
+</body>
+</html>
