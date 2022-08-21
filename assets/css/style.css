@@ -19,6 +19,10 @@
     
 }
 
-textbox:focus {
+textarea:focus {
     background-color: beige;
+}
+
+body {
+    background-color:darkgrey;
 }

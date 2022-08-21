@@ -1,3 +1,4 @@
+//variables
 var beginBox = document.getElementById("begin-box");
 var box1 = document.getElementById("question1-box");
 var box2 = document.getElementById("question2-box");
@@ -21,13 +22,39 @@ var userScore = 0;
 var printScore = document.getElementById("score");
 var showHiScoreBttn1 = document.getElementById("highscores-button1");
 var showHiScoreBttn2 = document.getElementById("highscores-button2");
+var timer = document.getElementById("timer");
 
+//timer function
+function countdown() {
+    var timeLeft = 60;
+    var timeInterval = setInterval(function () {
+      timer.textContent = timeLeft + " seconds remaining";
+      timeLeft--;
+      //if you run out of time, the countdown stops and you're brought to the end screen
+      if (timeLeft === 0) {
+        clearInterval(timeInterval);
+        beginBox.setAttribute("class", "hidden");
+        box1.setAttribute("class", "hidden");
+        box2.setAttribute("class", "hidden");
+        box3.setAttribute("class", "hidden");
+        box4.setAttribute("class", "hidden");
+        finishBox.setAttribute("class", "displayed");
+        highScoresBox.setAttribute("class", "hidden");
+        timer.textContent = "TIME'S UP";
+      }
+      //if you finish before the countdown reaches zero, the countdown will also stop
+      nextButton4.addEventListener("click", function() {
+        clearInterval(timeInterval);
+      });
+      
+    }, 1000);
+}
 
-
-
+//question boxes and buttons and what happens when they are pressed
 nextButtonBegin.addEventListener("click", function() {
     beginBox.setAttribute("class", "hidden");
     box1.setAttribute("class", "displayed");
+    countdown();
 });
 
 nextButton1.addEventListener("click", function() {
@@ -66,16 +93,16 @@ nextButton4.addEventListener("click", function() {
         }
     }
     //checks if the answer is correct for each question. if so, appropriate points are added
-    if (userAnswers[0] == 'boba') {
+    if (userAnswers[0] == 'correct') {
         userScore = userScore +25
     }
-    if (userAnswers[1] == '^-^') {
+    if (userAnswers[1] == 'correct') {
         userScore = userScore +25
     }
-    if (userAnswers[2] == 'gnomes') {
+    if (userAnswers[2] == 'correct') {
         userScore = userScore +25
     }
-    if (userAnswers[3] == 'raccoon') {
+    if (userAnswers[3] == 'correct') {
         userScore = userScore +25
     }
     //prints the score as text content in html to be displayed
@@ -90,11 +117,6 @@ prevButton4.addEventListener("click", function() {
     box3.setAttribute("class", "displayed");
 });
 
-showHiScoreBttn1.addEventListener("click", function() {
-    boxes[0, 1, 2, 3 , 4, 5].setAttribute("class", "hidden");
-    highScoresBox.setAttribute("class", "displayed");
-})
-
 //shows the high score box
 showHiScoreBttn1.addEventListener("click", function() {
     beginBox.setAttribute("class", "hidden");
@@ -105,3 +127,13 @@ showHiScoreBttn1.addEventListener("click", function() {
     finishBox.setAttribute("class", "hidden");
     highScoresBox.setAttribute("class", "displayed");
 })
+showHiScoreBttn2.addEventListener("click", function() {
+    beginBox.setAttribute("class", "hidden");
+    box1.setAttribute("class", "hidden");
+    box2.setAttribute("class", "hidden");
+    box3.setAttribute("class", "hidden");
+    box4.setAttribute("class", "hidden");
+    finishBox.setAttribute("class", "hidden");
+    highScoresBox.setAttribute("class", "displayed");
+})
+

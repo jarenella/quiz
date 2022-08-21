@@ -6,26 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Document</title>
+    <title>JavaScript Quiz</title>
 </head>
 <body>
 
     <nav id="header">
-        <h1>How Well Do You Know Me?</h1>
+        <h1>JavaScript Quiz</h1>
         <button>Restart Quiz</button>
         <button id="highscores-button1">View High Scores</button>
     </nav>
 
+    <nav id="timer"></nav>
+
     <nav id="begin-box" class="displayed">
-        <h2>Are you ready? Test your knowledge about me</h2>
+        <h2>Are you ready? Test your knowledge about JavaScript in this timed quiz! You'll have 60 seconds to answer four questions. Every question incorrect will subtract 15 seconds from your total time.</h2>
         <button class="next-button" id="next-button-begin">Click to begin</button>
     </nav>
 
     <nav id="question1-box" class="hidden">
-        <h3>Which of these is my favorite beverage</h3>
+        <h3>What is a boolean?</h3>
         <!--answer 1-->
-        <input type="checkbox" id="q1a1" value="boba">
-        <label for="q1a1">Boba</label>
+        <input type="checkbox" id="q1a1" value="correct">
+        <label for="q1a1">A variable which is equal to either true or false</label>
         <!--answer2-->
         <input type="checkbox" id="q1a2" value="coffee">
         <label for="q1a2">Coffee</label>
@@ -40,10 +42,10 @@
     </nav>
 
     <nav id="question2-box" class="hidden">
-        <h3>Which of these keyboard faces is my favorite?</h3>
+        <h3>Which type of brackets do you put the conditional statement in in an if statement?</h3>
         <!--answer 1-->
-        <input type="checkbox" id="q2a1" value="^-^">
-        <label for="q2a1">^-^</label>
+        <input type="checkbox" id="q2a1" value="correct">
+        <label for="q2a1">Parenthasese () brackets</label>
         <!--answer2-->
         <input type="checkbox" id="q2a2" value=":)">
         <label for="q2a2">:)</label>
@@ -59,7 +61,7 @@
     </nav>
 
     <nav id="question3-box" class="hidden">
-        <h3>What is my favorite mythical creature?</h3>
+        <h3>What does i++ mean?</h3>
         <!--answer 1-->
         <input type="checkbox" id="q3a1" value="goblins">
         <label for="q3a1">Goblins</label>
@@ -67,8 +69,8 @@
         <input type="checkbox" id="q3a2" value="fairies">
         <label for="q3a2">Fairies</label>
         <!--answer3-->
-        <input type="checkbox" id="q3a3" value="gnomes">
-        <label for="q3a3">Gnomes</label>
+        <input type="checkbox" id="q3a3" value="correct">
+        <label for="q3a3">i = i + 1</label>
         <!--answer 4-->
         <input type="checkbox" id="q3a4" value="trolls">
         <label for="q3a4">Trolls</label>
@@ -78,7 +80,7 @@
     </nav>
 
     <nav id="question4-box" class="hidden">
-        <h3>Which of these animals is my favorite?</h3>
+        <h3>When adding an event listener to call a function, you would write said function as simply functionName instead of functionName()''. Why, in this instance, do you leave out the ();, when it would usually be included?</h3>
         <!--answer 1-->
         <input type="checkbox" id="q4a1" value="giraffe">
         <label for="q4a1">Giraffe</label>
@@ -89,8 +91,8 @@
         <input type="checkbox" id="q4a3" value="fox">
         <label for="q4a3">Fox</label>
         <!--answer 4-->
-        <input type="checkbox" id="q4a4" value="raccoon">
-        <label for="q4a4">Raccoon</label>
+        <input type="checkbox" id="q4a4" value="correct">
+        <label for="q4a4">Because adding (); to the end of the function indicates that we are calling it. However, when used inside of an event listener, the function we are using the listener to call, is already being called automatically by the eventlistener.</label>
         <!--next and previous question buttons-->
         <button class="prev-button" id="prev-button-4">Previous</button>
         <button class="next-button" id="next-button-4">Next</button>
