@@ -29,13 +29,13 @@
         <input type="checkbox" id="q1a1" value="correct">
         <label for="q1a1">A variable which is equal to either true or false</label>
         <!--answer2-->
-        <input type="checkbox" id="q1a2" value="coffee">
+        <input type="checkbox" id="q1a2" value="incorrect">
         <label for="q1a2">Coffee</label>
         <!--answer3-->
-        <input type="checkbox" id="q1a3" value="lemonaide">
+        <input type="checkbox" id="q1a3" value="incorrect">
         <label for="q1a3">Lemonaide</label>
         <!--answer 4-->
-        <input type="checkbox" id="q1a4" value="soda">
+        <input type="checkbox" id="q1a4" value="incorrect">
         <label for="q1a4">Soda</label>
         <!--next question button-->
         <button class="next-button" id="next-button-1">Next</button>
@@ -47,13 +47,13 @@
         <input type="checkbox" id="q2a1" value="correct">
         <label for="q2a1">Parenthasese () brackets</label>
         <!--answer2-->
-        <input type="checkbox" id="q2a2" value=":)">
+        <input type="checkbox" id="q2a2" value="incorrect">
         <label for="q2a2">:)</label>
         <!--answer3-->
-        <input type="checkbox" id="q2a3" value="C:">
+        <input type="checkbox" id="q2a3" value="incorrect">
         <label for="q2a3">:D</label>
         <!--answer 4-->
-        <input type="checkbox" id="q2a4" value=";)">
+        <input type="checkbox" id="q2a4" value="incorrect">
         <label for="q2a4">;)</label>
         <!--next and previous question buttons-->
         <button class="prev-button" id="prev-button-2">Previous</button>
@@ -63,16 +63,16 @@
     <nav id="question3-box" class="hidden">
         <h3>What does i++ mean?</h3>
         <!--answer 1-->
-        <input type="checkbox" id="q3a1" value="goblins">
+        <input type="checkbox" id="q3a1" value="incorrect">
         <label for="q3a1">Goblins</label>
         <!--answer2-->
-        <input type="checkbox" id="q3a2" value="fairies">
+        <input type="checkbox" id="q3a2" value="incorrect">
         <label for="q3a2">Fairies</label>
         <!--answer3-->
         <input type="checkbox" id="q3a3" value="correct">
         <label for="q3a3">i = i + 1</label>
         <!--answer 4-->
-        <input type="checkbox" id="q3a4" value="trolls">
+        <input type="checkbox" id="q3a4" value="incorrect">
         <label for="q3a4">Trolls</label>
         <!--next and previous question buttons-->
         <button class="prev-button" id="prev-button-3">Previous</button>
@@ -82,13 +82,13 @@
     <nav id="question4-box" class="hidden">
         <h3>When adding an event listener to call a function, you would write said function as simply functionName instead of functionName()''. Why, in this instance, do you leave out the ();, when it would usually be included?</h3>
         <!--answer 1-->
-        <input type="checkbox" id="q4a1" value="giraffe">
+        <input type="checkbox" id="q4a1" value="incorrect">
         <label for="q4a1">Giraffe</label>
         <!--answer2-->
-        <input type="checkbox" id="q4a2" value="panda">
+        <input type="checkbox" id="q4a2" value="incorrect">
         <label for="q4a2">Panda</label>
         <!--answer3-->
-        <input type="checkbox" id="q4a3" value="fox">
+        <input type="checkbox" id="q4a3" value="incorrect">
         <label for="q4a3">Fox</label>
         <!--answer 4-->
         <input type="checkbox" id="q4a4" value="correct">
@@ -101,22 +101,22 @@
     <nav id="finish-box" class="hidden">
         <h3>Congrats! You finished. Your score was: <span id="score"></span>%</h3>
         <h4>Enter your name to submit your score!</h4>
-        <textarea></textarea>
-        <button>Submit</button>
+        <textarea placeholder="Your name here" id="user-name"></textarea>
+        <button id="submit-button">Submit</button>
         <p>Congrats! Your score was submitted</p>
         <button id="highscores-button2">Click to see high scores</button>
     </nav>
 
     <nav id="high-scores" class="hidden">
         <h3>High Scores:</h3>
-        <p id="top-score"></p>
-        <p id="2nd-place"></p>
-        <p id="3rd-place"></p>
-        <p id="4th-place"></p>
-        <p id="5th-place"></p>
-        <p id="6th-place"></p>
-        <p id="7th-place"></p>
-        <p id="8th-place"></p>
+        <p id="top-score">1. </p>
+        <p id="2nd-place">2. </p>
+        <p id="3rd-place">3. </p>
+        <p id="4th-place">4. </p>
+        <p id="5th-place">5. </p>
+        <p id="6th-place">6. </p>
+        <p id="7th-place">7. </p>
+        <p id="8th-place">8. </p>
     </nav>
 
     <script src="assets/script/script.js"></script>
