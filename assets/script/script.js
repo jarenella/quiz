@@ -28,6 +28,15 @@ var topScore = document.getElementById("top-score");
 var score2 = document.getElementById("2nd-place");
 var score3 = document.getElementById("3rd-place");
 var score4 = document.getElementById("4th-place");
+var question1Options = document.querySelectorAll('[id*="q1"]');
+var question2Options = document.querySelectorAll('[id*="q2"]');
+var question3Options = document.querySelectorAll('[id*="q3"]');
+var question4Options = document.querySelectorAll('[id*="q4"]');
+
+// compare numbers function
+function compareNumbers(a, b) {
+    return a - b;
+}
 
 //for loop function that puts all answers on an array called userAnswers
 function updateUserAnswers() {
@@ -39,16 +48,71 @@ function updateUserAnswers() {
     }
 }
 
+//for loop that assigns the checked box of question one to a variable Question1Ans
+//but first we need to declare the variable globally
+var Question1Ans = '';
+function updateQuestion1Ans() {
+    for (i=0; i < question1Options.length; i++) {
+        if (question1Options[i].checked) {
+            Question1Ans = question1Options[i].value;
+        }
+    }
+}
+
+//for loop that assigns the checked box of question one to a variable Question1Ans
+//but first we need to declare the variable globally
+var Question2Ans = '';
+function updateQuestion2Ans() {
+    for (i=0; i < question2Options.length; i++) {
+        if (question2Options[i].checked) {
+            Question2Ans = question2Options[i].value;
+        }
+    }
+}
+
+//for loop that assigns the checked box of question one to a variable Question1Ans
+//but first we need to declare the variable globally
+var Question3Ans = '';
+function updateQuestion3Ans() {
+    for (i=0; i < question3Options.length; i++) {
+        if (question3Options[i].checked) {
+            Question3Ans = question3Options[i].value;
+        }
+    }
+}
+
+//we dont need a for loop checking if the last question is correct or not because it will already be updated by the final next button being clicked and a score will be determined. there isn't really a point to taking away someone's remaining time on a quiz if they get the final problem wrong
+
 
 //timer function
+//the timeLeft variable must be declared globally to be influenced in later code
+var timeLeft = 60;
 function countdown() {
-    var timeLeft = 60;
     var timeInterval = setInterval(function () {
       timer.textContent = timeLeft + " seconds remaining";
       timeLeft--;
       //if you run out of time, the countdown stops and you're brought to the end screen
       if (timeLeft === 0 || timeLeft < 0) {
         clearInterval(timeInterval);
+          //BELOW AREA DETERMINES SCORE
+            //for loop looks at every checkbox on the quiz. if it's checked, then it's value is added to the array userAnswers. function is defined on line 28
+            updateUserAnswers();
+            //checks if the answer is correct for each question. if so, appropriate points are added
+            if (userAnswers[0] == 'correct') {
+                userScore = userScore +25
+            }
+            if (userAnswers[1] == 'correct') {
+                userScore = userScore +25
+            }
+            if (userAnswers[2] == 'correct') {
+                userScore = userScore +25
+            }
+            if (userAnswers[3] == 'correct') {
+                userScore = userScore +25
+            }
+            //prints the score as text content in html to be displayed
+            printScore.textContent = userScore + "%";
+          //ABOVE AREA DETERMINES SCORE
         beginBox.setAttribute("class", "hidden");
         box1.setAttribute("class", "hidden");
         box2.setAttribute("class", "hidden");
@@ -67,25 +131,6 @@ function countdown() {
       showHiScoreBttn1.addEventListener("click", function() {
         clearInterval(timeInterval);
       });
-
-      //when you click the next button on the questions, you lose 15 seconds if it's incorrect
-      //if (nextButton1.clicked == true) {
-        //updateUserAnswers();
-        //if (userAnswers[0] == 'incorrect') {
-            //timeLeft = timeLeft - 15
-        //}
-      //}
-      //else if (nextButton2.clicked == true) {
-        //updateUserAnswers();
-        //if (userAnswers[1] == 'incorrect') {
-            //timeLeft = timeLeft -15
-        //}
-      //}
-    
-
-
-
-      
       
     }, 1000);
 }
@@ -100,11 +145,25 @@ nextButtonBegin.addEventListener("click", function() {
 nextButton1.addEventListener("click", function() {
     box1.setAttribute("class", "hidden");
     box2.setAttribute("class", "displayed");
+    updateQuestion1Ans();
+    if (Question1Ans == 'correct') {
+        //nothing should happen in this instance
+    }
+    else {
+        timeLeft = timeLeft - 15;
+    }
 });
 
 nextButton2.addEventListener("click", function() {
     box2.setAttribute("class", "hidden");
     box3.setAttribute("class", "displayed");
+    updateQuestion2Ans();
+    if (Question2Ans == 'correct') {
+        //nothing should happen in this instance
+    }
+    else {
+        timeLeft = timeLeft - 15;
+    }
 });
 prevButton2.addEventListener("click", function() {
     box2.setAttribute("class", "hidden");
@@ -114,6 +173,13 @@ prevButton2.addEventListener("click", function() {
 nextButton3.addEventListener("click", function() {
     box3.setAttribute("class", "hidden");
     box4.setAttribute("class", "displayed");
+    updateQuestion3Ans();
+    if (Question3Ans == 'correct') {
+        //nothing should happen in this instance
+    }
+    else {
+        timeLeft = timeLeft - 15;
+    }
 });
 prevButton3.addEventListener("click", function() {
     box3.setAttribute("class", "hidden");
@@ -141,7 +207,7 @@ nextButton4.addEventListener("click", function() {
         userScore = userScore +25
     }
     //prints the score as text content in html to be displayed
-    printScore.textContent = userScore;
+    printScore.textContent = userScore + "%";
  //ABOVE AREA DETERMINES SCORE
 
 
@@ -172,7 +238,11 @@ showHiScoreBttn2.addEventListener("click", function() {
     highScoresBox.setAttribute("class", "displayed");
 })
 
+
+
 //saving high scores
+var highScores = [];
+var oldHighScores = [JSON.parse(localStorage.getItem("highScores"))];
 submitButton.addEventListener("click", function() {
     var userName = document.getElementById("user-name").value;
 
@@ -183,21 +253,20 @@ submitButton.addEventListener("click", function() {
     localStorage.setItem("userName", userName);
     localStorage.setItem("userScore", userScore);
 
-    //var user = {
-        //name: userName,
-        //score: userScore
-    //}
-
-    //localStorage.setItem("user", JSON.stringify(user));
-
+    if (localStorage.getItem("highScores") === null) {
+        console.log("test1");
+        highScores.push(userScore);
+        localStorage.setItem("highScores", highScores);
+    }
+    else {
+        console.log("test");
+        newHighScores = oldHighScores.push(userScore);
+        localStorage.setItem("highScores", newHighScores);
+    }
+    
 });
 
-//rendering high scores
-//var userFromLS = localStorage.getItem('user');
-//var userFromLsMinusQuotes = userFromLS.replaceAll('"', '');
-//var userFromLsMinusBrackets1 = userFromLsMinusQuotes.replaceAll("{", "");
-//var userRenderable = userFromLsMinusBrackets1.replaceAll("}", "");
-//document.getElementById("top-score").textContent = "1. " + userRenderable;
+//rendering high scores (not finished)
 topScore.textContent = "1. Name: " + localStorage.getItem("userName") + " Score: " + localStorage.getItem("userScore");
 if (topScore.textContent.includes(0) && userScore > 0) {
     topScore.textContent = "1. Name: " + localStorage.getItem("userName") + " Score: " + localStorage.getItem("userScore");
