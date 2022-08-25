@@ -256,7 +256,8 @@ submitButton.addEventListener("click", function() {
     }
     else {
         oldHighScores.push(userScore);
-        localStorage.setItem("highScores", oldHighScores);
+        highScores = oldHighScores
+        localStorage.setItem("highScores", highScores);
     }
     
 });
