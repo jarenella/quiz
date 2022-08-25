@@ -250,18 +250,13 @@ submitButton.addEventListener("click", function() {
         alert("Please enter a name before submitting your score")
     }
 
-    localStorage.setItem("userName", userName);
-    localStorage.setItem("userScore", userScore);
-
     if (localStorage.getItem("highScores") === null) {
-        console.log("test1");
         highScores.push(userScore);
         localStorage.setItem("highScores", highScores);
     }
     else {
-        console.log("test");
-        newHighScores = oldHighScores.push(userScore);
-        localStorage.setItem("highScores", newHighScores);
+        oldHighScores.push(userScore);
+        localStorage.setItem("highScores", oldHighScores);
     }
     
 });
